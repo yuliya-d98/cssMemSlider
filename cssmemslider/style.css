@@ -1,0 +1,37 @@
+:root {
+    --footer-height: 60px;
+}
+
+p {
+    margin: 0;
+}
+
+.body {
+    margin: 0;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: darkcyan;
+}
+
+.main {
+    display: block;
+    width: 70%;
+    height: calc(100% - var(--footer-height));
+    margin: 0 auto;
+}
+
+.footer {
+    display: block;
+    width: 100%;
+    height: var(--footer-height);
+    background-color: rgb(0, 100, 139);
+}
+
+.footer-container {
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+}
