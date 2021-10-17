@@ -1,0 +1,297 @@
+:root {
+  --text-width: 20vw;
+  --image-size: 40vw;
+
+  --footer-height: 60px;
+  --controls-height: 60px;
+  --slide-padding: 20px;
+
+  --container-padding: 30px;
+
+  --pagination-color: rgb(238, 11, 181);
+  --header-bg-color: rgb(22, 22, 126);
+  --bg-color: darkcyan;
+}
+
+@font-face {
+  font-family: "Impact";
+  src: url("assets/font/impact.ttf") format("ttf");
+}
+
+p {
+  margin: 0;
+}
+
+.body {
+  margin: 0;
+}
+
+.container {
+  background-color: var(--bg-color);
+}
+
+/* header and footer */
+
+.footer {
+  display: block;
+  width: 100%;
+  height: var(--footer-height);
+  background-color: var(--header-bg-color);
+}
+
+.footer-container {
+  max-width: 1260px;
+  padding: 0 var(--container-padding);
+  height: 100%;
+  margin: 0 auto;
+}
+
+.main {
+  display: block;
+  max-width: 1260px;
+  padding: 0 var(--container-padding);
+  margin: 0 auto;
+}
+
+.slider {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* image */
+
+.slide-image {
+  width: var(--image-size);
+  height: var(--image-size);
+  margin: var(--slide-padding) 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.slide-container {
+  width: calc(7*var(--image-size));
+  transition: all .2s;
+  display: flex;
+  gap: 0;
+}
+
+.meme-image {
+  width: var(--image-size);
+  height: var(--image-size);
+  background-size: cover;
+  display: inline-block;
+}
+
+.meme0 {
+  background-image: url('assets/img/image0.jpg');
+}
+
+.meme1 {
+  background-image: url('assets/img/image1.jpg');
+}
+
+.meme2 {
+  background-image: url('assets/img/image2.jpg');
+}
+
+.meme3 {
+  background-image: url('assets/img/image3.jpg');
+}
+
+.meme4 {
+  background-image: url('assets/img/image4.jpg');
+}
+
+.meme5 {
+  background-image: url('assets/img/image5.jpg');
+}
+
+.meme6 {
+  background-image: url('assets/img/image6.jpg');
+}
+
+#meme0:checked ~ .slider .slide-container {margin-left: 0}
+#meme1:checked ~ .slider .slide-container {margin-left: calc(-1*var(--image-size))}
+#meme2:checked ~ .slider .slide-container {margin-left: calc(-2*var(--image-size))}
+#meme3:checked ~ .slider .slide-container {margin-left: calc(-3*var(--image-size))}
+#meme4:checked ~ .slider .slide-container {margin-left: calc(-4*var(--image-size))}
+#meme5:checked ~ .slider .slide-container {margin-left: calc(-5*var(--image-size))}
+#meme6:checked ~ .slider .slide-container {margin-left: calc(-6*var(--image-size))}
+
+/* Controls */
+
+.controls-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--controls-height);
+}
+
+/* text */
+
+.text {
+  width: var(--text-width);
+  height: 8vw;
+  overflow: hidden;
+}
+
+.text-container {
+  width: calc(7*var(--text-width));
+  transition: all .2s;
+  display: flex;
+  gap: 0;
+}
+
+.slide-text {
+  width: var(--text-width);
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  height: 8vw;
+  line-height: 8vw;
+}
+
+#meme0:checked ~ .slider .text-container {margin-left: 0}
+#meme1:checked ~ .slider .text-container {margin-left: calc(-1*var(--text-width))}
+#meme2:checked ~ .slider .text-container {margin-left: calc(-2*var(--text-width))}
+#meme3:checked ~ .slider .text-container {margin-left: calc(-3*var(--text-width))}
+#meme4:checked ~ .slider .text-container {margin-left: calc(-4*var(--text-width))}
+#meme5:checked ~ .slider .text-container {margin-left: calc(-5*var(--text-width))}
+#meme6:checked ~ .slider .text-container {margin-left: calc(-6*var(--text-width))}
+
+/* pagination */
+
+.pagination {
+  width: 250px;
+  height: var(--controls-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input {
+  display: none;
+}
+
+label {
+  height: 200%;
+  width: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border: 3px solid var(--pagination-color);
+  border-radius: 50%;
+  background-color: var(--pagination-color);
+}
+
+#meme0 ~ .slider .circle0:hover .circle,
+#meme1 ~ .slider .circle1:hover .circle,
+#meme2 ~ .slider .circle2:hover .circle,
+#meme3 ~ .slider .circle3:hover .circle,
+#meme4 ~ .slider .circle4:hover .circle,
+#meme5 ~ .slider .circle5:hover .circle,
+#meme6 ~ .slider .circle6:hover .circle {
+  border-color: white;
+  background-color: white;
+}
+
+#meme0:checked ~ .slider .circle0 .circle,
+#meme1:checked ~ .slider .circle1 .circle,
+#meme2:checked ~ .slider .circle2 .circle,
+#meme3:checked ~ .slider .circle3 .circle,
+#meme4:checked ~ .slider .circle4 .circle,
+#meme5:checked ~ .slider .circle5 .circle,
+#meme6:checked ~ .slider .circle6 .circle {
+  background-color: transparent;
+}
+
+/* Footer */
+
+.footer-position {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: var(--pagination-color);
+  cursor: pointer;
+}
+
+.footer-link:hover,
+.footer-link:active {
+  color: white;
+}
+
+/* Animation */
+
+.to-left {
+  animation-name: left;
+}
+
+.from-right {
+  animation-name: right;
+}
+
+.to-right {
+  animation-name: right;
+  animation-direction: reverse;
+}
+
+.from-left {
+  animation-name: left;
+  animation-direction: reverse;
+}
+
+@keyframes left {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes right {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
+}
+
+/* Adaptivity */
+
+@media (max-width: 700px) {
+
+  :root {
+    --image-size: 80vw;
+  }
+
+  .controls-container {
+    height: calc(2 * var(--controls-height));
+    flex-direction: column;
+  }
+
+  .pagination {
+    order: 1;
+  }
+
+  .text {
+    order: 2;
+  }
+}
