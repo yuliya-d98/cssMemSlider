@@ -1,6 +1,6 @@
 // Variables
 
-const images = document.querySelectorAll('.slide-image');
+const images = document.querySelectorAll('.slide-image img');
 const texts = document.querySelectorAll('.slide-text');
 
 const pagination = document.querySelectorAll('.circle-overlay');
@@ -20,15 +20,26 @@ function hideItem(direction) {
 	images[currentItem].addEventListener('animationend', function() {
 		this.classList.remove('active', direction);
 	});
+	texts[currentItem].classList.add(direction);
+	texts[currentItem].addEventListener('animationend', function() {
+		this.classList.remove('active', direction);
+	});
+	pagination[currentItem].classList.remove('active');
 }
 
 function showItem(direction) {
 	images[currentItem].classList.add('active', direction);
+	texts[currentItem].classList.add('active', direction);
 	images[currentItem].addEventListener('animationend', function() {
 		this.classList.remove('active', direction);
 		this.classList.add('active');
-		isEnabled = true;
 	});
+	texts[currentItem].addEventListener('animationend', function() {
+		this.classList.remove('active', direction);
+		this.classList.add('active');
+	});
+	pagination[currentItem].classList.add('active');
+	isEnabled = true;
 }
 
 
