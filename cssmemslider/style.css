@@ -20,41 +20,27 @@ p {
 }
 
 .body {
-    margin: 0;
+  margin: 0;
 }
 
 .container {
-    background-color: var(--bg-color);
+  background-color: var(--bg-color);
 }
 
 /* header and footer */
 
-.header,
 .footer {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
   height: var(--footer-height);
   background-color: var(--header-bg-color);
 }
 
-.header .footer-container {
-    display: flex;
-    align-items: center;
-}
-
 .footer-container {
-    max-width: 1260px;
-    padding: 0 var(--container-padding);
+  max-width: 1260px;
+  padding: 0 var(--container-padding);
   height: 100%;
   margin: 0 auto;
-}
-
-.header-text {
-    font-family: "Impact";
-    font-size: 40px;
-    font-weight: bold;
-    color: white;
-    text-transform: uppercase;
 }
 
 .main {
@@ -75,21 +61,15 @@ p {
 /* image */
 
 .slide-image {
-  position: relative;
-  animation: 0.5s ease-in-out;
+  max-width: 500px;
+  overflow: hidden;
 }
 
 .slide-image img {
-  display: none;
   margin: var(--slide-padding) 0;
   width: 100%;
-  max-width: 500px;
   object-fit: cover;
   border-radius: 10px;
-}
-
-.slide-image img.active {
-  display: block;
 }
 
 /* Controls */
@@ -112,15 +92,10 @@ p {
   font-size: 20px;
   font-weight: bold;
   color: white;
-  display: none;
   height: var(--controls-height);
   line-height: var(--controls-height);
   position: relative;
   animation: 0.5s ease-in-out;
-}
-
-.slide-text.active {
-  display: block;
 }
 
 /* pagination */
@@ -133,15 +108,20 @@ p {
   align-items: center;
 }
 
-.circle-overlay {
-  height: 100%;
+label > input {
+  display: none;
+}
+
+label {
+  height: 200%;
   width: 30px;
   cursor: pointer;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .circle {
-  align-self: center;
   width: 10px;
   height: 10px;
   border: 3px solid var(--pagination-color);
@@ -149,12 +129,12 @@ p {
   background-color: var(--pagination-color);
 }
 
-.circle-overlay:hover .circle {
+label:hover .circle {
   border-color: white;
   background-color: white;
 }
 
-.circle-overlay.active .circle {
+input:checked + .circle {
   background-color: transparent;
 }
 
