@@ -1,5 +1,6 @@
 :root {
   --text-width: 20vw;
+  --image-size: 40vw;
 
   --footer-height: 60px;
   --controls-height: 60px;
@@ -63,23 +64,23 @@ p {
 /* image */
 
 .slide-image {
-  width: 40vw;
-  height: 40vw;
+  width: var(--image-size);
+  height: var(--image-size);
   margin: var(--slide-padding) 0;
   border-radius: 10px;
   overflow: hidden;
 }
 
 .slide-container {
-  width: 280vw;
+  width: calc(7*var(--image-size));
   transition: all .2s;
   display: flex;
   gap: 0;
 }
 
 .meme-image {
-  width: 40vw;
-  height: 40vw;
+  width: var(--image-size);
+  height: var(--image-size);
   background-size: cover;
   display: inline-block;
 }
@@ -113,12 +114,12 @@ p {
 }
 
 #meme0:checked ~ .slider .slide-container {margin-left: 0}
-#meme1:checked ~ .slider .slide-container {margin-left: -40vw}
-#meme2:checked ~ .slider .slide-container {margin-left: -80vw}
-#meme3:checked ~ .slider .slide-container {margin-left: -120vw}
-#meme4:checked ~ .slider .slide-container {margin-left: -160vw}
-#meme5:checked ~ .slider .slide-container {margin-left: -200vw}
-#meme6:checked ~ .slider .slide-container {margin-left: -240vw}
+#meme1:checked ~ .slider .slide-container {margin-left: calc(-1*var(--image-size))}
+#meme2:checked ~ .slider .slide-container {margin-left: calc(-2*var(--image-size))}
+#meme3:checked ~ .slider .slide-container {margin-left: calc(-3*var(--image-size))}
+#meme4:checked ~ .slider .slide-container {margin-left: calc(-4*var(--image-size))}
+#meme5:checked ~ .slider .slide-container {margin-left: calc(-5*var(--image-size))}
+#meme6:checked ~ .slider .slide-container {margin-left: calc(-6*var(--image-size))}
 
 /* Controls */
 
@@ -276,6 +277,11 @@ label {
 /* Adaptivity */
 
 @media (max-width: 700px) {
+
+  :root {
+    --image-size: 80vw;
+  }
+
   .controls-container {
     height: calc(2 * var(--controls-height));
     flex-direction: column;
