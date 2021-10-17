@@ -1,4 +1,6 @@
 :root {
+  --text-width: 20vw;
+
   --footer-height: 60px;
   --controls-height: 60px;
   --slide-padding: 20px;
@@ -61,16 +63,62 @@ p {
 /* image */
 
 .slide-image {
-  max-width: 500px;
+  width: 40vw;
+  height: 40vw;
+  margin: var(--slide-padding) 0;
+  border-radius: 10px;
   overflow: hidden;
 }
 
-.slide-image img {
-  margin: var(--slide-padding) 0;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 10px;
+.slide-container {
+  width: 280vw;
+  transition: all .2s;
+  display: flex;
+  gap: 0;
 }
+
+.meme-image {
+  width: 40vw;
+  height: 40vw;
+  background-size: cover;
+  display: inline-block;
+}
+
+.meme0 {
+  background-image: url('assets/img/image0.jpg');
+}
+
+.meme1 {
+  background-image: url('assets/img/image1.jpg');
+}
+
+.meme2 {
+  background-image: url('assets/img/image2.jpg');
+}
+
+.meme3 {
+  background-image: url('assets/img/image3.jpg');
+}
+
+.meme4 {
+  background-image: url('assets/img/image4.jpg');
+}
+
+.meme5 {
+  background-image: url('assets/img/image5.jpg');
+}
+
+.meme6 {
+  background-image: url('assets/img/image6.jpg');
+}
+
+#meme0:checked ~ .slider .slide-container {margin-left: 0}
+#meme1:checked ~ .slider .slide-container {margin-left: -40vw}
+#meme2:checked ~ .slider .slide-container {margin-left: -80vw}
+#meme3:checked ~ .slider .slide-container {margin-left: -120vw}
+#meme4:checked ~ .slider .slide-container {margin-left: -160vw}
+#meme5:checked ~ .slider .slide-container {margin-left: -200vw}
+#meme6:checked ~ .slider .slide-container {margin-left: -240vw}
 
 /* Controls */
 
@@ -85,18 +133,34 @@ p {
 /* text */
 
 .text {
-  position: relative;
+  width: var(--text-width);
+  height: 8vw;
+  overflow: hidden;
+}
+
+.text-container {
+  width: calc(7*var(--text-width));
+  transition: all .2s;
+  display: flex;
+  gap: 0;
 }
 
 .slide-text {
+  width: var(--text-width);
   font-size: 20px;
   font-weight: bold;
   color: white;
-  height: var(--controls-height);
-  line-height: var(--controls-height);
-  position: relative;
-  animation: 0.5s ease-in-out;
+  height: 8vw;
+  line-height: 8vw;
 }
+
+#meme0:checked ~ .slider .text-container {margin-left: 0}
+#meme1:checked ~ .slider .text-container {margin-left: calc(-1*var(--text-width))}
+#meme2:checked ~ .slider .text-container {margin-left: calc(-2*var(--text-width))}
+#meme3:checked ~ .slider .text-container {margin-left: calc(-3*var(--text-width))}
+#meme4:checked ~ .slider .text-container {margin-left: calc(-4*var(--text-width))}
+#meme5:checked ~ .slider .text-container {margin-left: calc(-5*var(--text-width))}
+#meme6:checked ~ .slider .text-container {margin-left: calc(-6*var(--text-width))}
 
 /* pagination */
 
@@ -108,7 +172,7 @@ p {
   align-items: center;
 }
 
-label > input {
+input {
   display: none;
 }
 
@@ -129,12 +193,24 @@ label {
   background-color: var(--pagination-color);
 }
 
-label:hover .circle {
+#meme0 ~ .slider .circle0:hover .circle,
+#meme1 ~ .slider .circle1:hover .circle,
+#meme2 ~ .slider .circle2:hover .circle,
+#meme3 ~ .slider .circle3:hover .circle,
+#meme4 ~ .slider .circle4:hover .circle,
+#meme5 ~ .slider .circle5:hover .circle,
+#meme6 ~ .slider .circle6:hover .circle {
   border-color: white;
   background-color: white;
 }
 
-input:checked + .circle {
+#meme0:checked ~ .slider .circle0 .circle,
+#meme1:checked ~ .slider .circle1 .circle,
+#meme2:checked ~ .slider .circle2 .circle,
+#meme3:checked ~ .slider .circle3 .circle,
+#meme4:checked ~ .slider .circle4 .circle,
+#meme5:checked ~ .slider .circle5 .circle,
+#meme6:checked ~ .slider .circle6 .circle {
   background-color: transparent;
 }
 
